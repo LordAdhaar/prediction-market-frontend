@@ -6,7 +6,7 @@ import { predictionMarketContract } from "@/constants/contracts"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { TabsContent } from "@/components/ui/tabs"
 import { MarketCardSkeleton } from "@/components/skeletonCards"
-
+import { MarketCard } from "@/components/marketCard"
 
 export function PredictionMarketDashboard() {
 
@@ -43,7 +43,11 @@ export function PredictionMarketDashboard() {
                             <TabsContent value="active">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                                     {Array.from({ length: Number(marketCount) }, (_, index) => (
-                                        <></>
+                                        <MarketCard
+                                            key={index}
+                                            index={index}
+                                            filter="active"
+                                        />
                                     ))}
                                 </div>
                             </TabsContent>
@@ -51,7 +55,11 @@ export function PredictionMarketDashboard() {
                             <TabsContent value="pending">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                                     {Array.from({ length: Number(marketCount) }, (_, index) => (
-                                        <></>
+                                        <MarketCard
+                                            key={index}
+                                            index={index}
+                                            filter="pending"
+                                        />
                                     ))}
                                 </div>
                             </TabsContent>
@@ -59,7 +67,11 @@ export function PredictionMarketDashboard() {
                             <TabsContent value="resolved">
                                 <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                                     {Array.from({ length: Number(marketCount) }, (_, index) => (
-                                        <></>
+                                        <MarketCard
+                                            key={index}
+                                            index={index}
+                                            filter="resolved"
+                                        />
                                     ))}
                                 </div>
                             </TabsContent>
