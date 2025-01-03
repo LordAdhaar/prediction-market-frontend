@@ -1,9 +1,9 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { useActiveAccount, useReadContract } from "thirdweb/react";
 import { predictionMarketContract } from "@/constants/contracts"
-// import { MarketProgress } from "./market-progress";
+import { MarketProgress } from "./marketProgress";
 import { MarketTime } from "./market-time";
-// import { MarketCardSkeleton } from "./market-card-skeleton";
+import { MarketCardSkeleton } from "./skeletonCards";
 // import { MarketResolved } from "./market-resolved";
 // import { MarketPending } from "./market-pending";
 // import { MarketBuyInterface } from "./market-buy-interface";
@@ -92,7 +92,8 @@ export function MarketCard({ index, filter }: MarketCardProps) {
         <Card key={index} className="flex flex-col">
 
             {isLoadingMarketData ? (
-                <></>
+                <MarketCardSkeleton />
+
             ) : (
                 <>
                     <CardHeader>
@@ -100,14 +101,14 @@ export function MarketCard({ index, filter }: MarketCardProps) {
                         <CardTitle>{market?.question}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        {/* {market && (
+                        {market && (
                             <MarketProgress
                                 optionA={market.optionA}
                                 optionB={market.optionB}
                                 totalOptionAShares={market.totalOptionAShares}
                                 totalOptionBShares={market.totalOptionBShares}
                             />
-                        )} */}
+                        )}
                         {/* {new Date(Number(market?.endTime) * 1000) < new Date() ? (
                             market?.resolved ? (
                                 <MarketResolved
