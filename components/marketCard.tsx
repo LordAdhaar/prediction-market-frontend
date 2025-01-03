@@ -6,7 +6,7 @@ import { MarketTime } from "./market-time";
 import { MarketCardSkeleton } from "./skeletonCards";
 // import { MarketResolved } from "./market-resolved";
 // import { MarketPending } from "./market-pending";
-// import { MarketBuyInterface } from "./market-buy-interface";
+import { MarketBuyInterface } from "./marketBuyInterface";
 // import { MarketSharesDisplay } from "./market-shares-display";
 
 interface MarketCardProps {
@@ -109,23 +109,18 @@ export function MarketCard({ index, filter }: MarketCardProps) {
                                 totalOptionBShares={market.totalOptionBShares}
                             />
                         )}
-                        {/* {new Date(Number(market?.endTime) * 1000) < new Date() ? (
+                        {new Date(Number(market?.endTime) * 1000) < new Date() ? (
                             market?.resolved ? (
-                                <MarketResolved
-                                    marketId={index}
-                                    outcome={market.outcome}
-                                    optionA={market.optionA}
-                                    optionB={market.optionB}
-                                />
+                                <></>
                             ) : (
-                                <MarketPending />
+                                <></>
                             )
                         ) : (
                             <MarketBuyInterface
                                 marketId={index}
                                 market={market!}
                             />
-                        )} */}
+                        )}
                     </CardContent>
                     <CardFooter>
                         {/* {market && sharesBalance && (
