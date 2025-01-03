@@ -2,7 +2,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { useActiveAccount, useReadContract } from "thirdweb/react";
 import { predictionMarketContract } from "@/constants/contracts"
 // import { MarketProgress } from "./market-progress";
-// import { MarketTime } from "./market-time";
+import { MarketTime } from "./market-time";
 // import { MarketCardSkeleton } from "./market-card-skeleton";
 // import { MarketResolved } from "./market-resolved";
 // import { MarketPending } from "./market-pending";
@@ -90,10 +90,9 @@ export function MarketCard({ index, filter }: MarketCardProps) {
 
     return (
         <Card key={index} className="flex flex-col">
-            <CardTitle>{market?.question}</CardTitle>
 
-            {/* {isLoadingMarketData ? (
-                <MarketCardSkeleton />
+            {isLoadingMarketData ? (
+                <></>
             ) : (
                 <>
                     <CardHeader>
@@ -101,15 +100,15 @@ export function MarketCard({ index, filter }: MarketCardProps) {
                         <CardTitle>{market?.question}</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        {market && (
+                        {/* {market && (
                             <MarketProgress
                                 optionA={market.optionA}
                                 optionB={market.optionB}
                                 totalOptionAShares={market.totalOptionAShares}
                                 totalOptionBShares={market.totalOptionBShares}
                             />
-                        )}
-                        {new Date(Number(market?.endTime) * 1000) < new Date() ? (
+                        )} */}
+                        {/* {new Date(Number(market?.endTime) * 1000) < new Date() ? (
                             market?.resolved ? (
                                 <MarketResolved
                                     marketId={index}
@@ -125,18 +124,18 @@ export function MarketCard({ index, filter }: MarketCardProps) {
                                 marketId={index}
                                 market={market!}
                             />
-                        )}
+                        )} */}
                     </CardContent>
                     <CardFooter>
-                        {market && sharesBalance && (
+                        {/* {market && sharesBalance && (
                             <MarketSharesDisplay
                                 market={market}
                                 sharesBalance={sharesBalance}
                             />
-                        )}
+                        )} */}
                     </CardFooter>
                 </>
-            )} */}
+            )}
         </Card>
     )
 }
