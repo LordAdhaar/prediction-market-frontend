@@ -5,7 +5,7 @@ import { MarketProgress } from "./marketProgress";
 import { MarketTime } from "./marketTime";
 import { MarketCardSkeleton } from "./skeletonCards";
 import { MarketResolved } from "./marketResolved";
-// import { MarketPending } from "./market-pending";
+import { MarketPending } from "./marketPending";
 import { MarketBuyInterface } from "./marketBuyInterface";
 import { MarketSharesDisplay } from "./marketSharesDisplay";
 
@@ -118,7 +118,7 @@ export function MarketCard({ index, filter }: MarketCardProps) {
                                     optionB={market.optionB}
                                 />
                             ) : (
-                                <></>
+                                <MarketPending />
                             )
                         ) : (
                             <MarketBuyInterface
