@@ -2,12 +2,12 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card"
 import { useActiveAccount, useReadContract } from "thirdweb/react";
 import { predictionMarketContract } from "@/constants/contracts"
 import { MarketProgress } from "./marketProgress";
-import { MarketTime } from "./market-time";
+import { MarketTime } from "./marketTime";
 import { MarketCardSkeleton } from "./skeletonCards";
-// import { MarketResolved } from "./market-resolved";
+import { MarketResolved } from "./marketResolved";
 // import { MarketPending } from "./market-pending";
 import { MarketBuyInterface } from "./marketBuyInterface";
-// import { MarketSharesDisplay } from "./market-shares-display";
+import { MarketSharesDisplay } from "./marketSharesDisplay";
 
 interface MarketCardProps {
     index: number;
@@ -111,7 +111,12 @@ export function MarketCard({ index, filter }: MarketCardProps) {
                         )}
                         {new Date(Number(market?.endTime) * 1000) < new Date() ? (
                             market?.resolved ? (
-                                <></>
+                                <MarketResolved
+                                    marketId={index}
+                                    outcome={market.outcome}
+                                    optionA={market.optionA}
+                                    optionB={market.optionB}
+                                />
                             ) : (
                                 <></>
                             )
@@ -123,12 +128,12 @@ export function MarketCard({ index, filter }: MarketCardProps) {
                         )}
                     </CardContent>
                     <CardFooter>
-                        {/* {market && sharesBalance && (
+                        {market && sharesBalance && (
                             <MarketSharesDisplay
                                 market={market}
                                 sharesBalance={sharesBalance}
                             />
-                        )} */}
+                        )}
                     </CardFooter>
                 </>
             )}
