@@ -2,8 +2,8 @@ import { client } from "@/app/client";
 import { getContract } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
 
-export const predictionMarketContractAddress = "0x80b37c19e31e43195e42ad4d17713dd5892238ca";
-export const tokenContractAddress = "0xb4ce2d982de2e5fc90839c4c80b04bc7fb30f032";
+export const predictionMarketContractAddress = "0x1996d02bb098837ad25c1a6ffe44da9ea0fbb1fd";
+export const tokenContractAddress = "0xecc0933130ae3136cbec878b98bb00983f15fd1a";
 
 export const predictionMarketContract = getContract({
     client: client,
